@@ -1,20 +1,26 @@
 <template>
-  <p>Greeting, {{greeting}}!</p>
+  <Button @click="toggle">Click me!</Button>
+
+  <Dialog header="Header" v-model:visible="display" >
+    Content
+  </Dialog>
 </template>
 
 <script>
 module.exports = {
   data: function() {
     return {
-      greeting: "Hello"
+      display: false
+    }
+  },
+
+  methods: {
+    toggle() {
+      this.display = !this.display
     }
   }
 }
 </script>
 
 <style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
 </style>
