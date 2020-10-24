@@ -1,5 +1,5 @@
 # Vue3-Webpack Boilerplate
-Let's have a taste of Vue3 :stuck_out_tongue:
+Let's have a taste of Vue3 :yum:
 
 ## Setup
 ```
