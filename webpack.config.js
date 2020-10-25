@@ -8,6 +8,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 /* vue-loader 15 requires a webpack plugin to function */
 const { VueLoaderPlugin } = require('vue-loader')
 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
 /* listen port */
 const PORT = 19985
 
@@ -18,10 +20,12 @@ module.exports = (env, options) => {
     /* default is development mode, run 'yarn run build' for production. */
     mode: mode,
     entry: { /* required field */
+      light: __dirname + '/node_modules/primevue/resources/themes/saga-blue/theme.css',
+      night: __dirname + '/node_modules/primevue/resources/themes/vela-blue/theme.css',
       app: __dirname + '/main.js'
     },
     output: { /* required field */
-      filename: 'bundle.js'
+      filename: '[name].js'
     },
     module: {
       rules: [
@@ -35,7 +39,14 @@ module.exports = (env, options) => {
         },
         { test: /\.vue$/, use: 'vue-loader' },
         { test: /\.css$/, use: [
-          'style-loader', 'css-loader',
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: false,
+            }
+          },
+          //'style-loader', /* this is conflict with MiniCssExtractPlugin.loader */
+          'css-loader',
           /* need both here to both inject the CSS and
            * convert CSS to JavaScript module. */
         ]},
@@ -85,12 +96,16 @@ module.exports = (env, options) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
+        excludeAssets: [/\.css$/], /* stop injecting css */
         inject: true,
         hash: true, /* cache busting */
         template: __dirname + '/index.template.html',
         filename: 'index.html' /* default goes to ./dist */
       }),
-      new VueLoaderPlugin()
+      new VueLoaderPlugin(),
+      new MiniCssExtractPlugin({
+        filename: '[name].css'
+      })
     ],
     devServer: {
       contentBase: __dirname + '/dist',
