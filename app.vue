@@ -4,6 +4,12 @@
   <Dialog header="Theme Toggle" v-model:visible="showDialog">
     Current theme is {{nightTheme ? "night theme" : "light theme"}}.
   </Dialog>
+
+  <div class="p-grid">
+      <div class="p-col">1</div>
+      <div class="p-col">2</div>
+      <div class="p-col">3</div>
+  </div>
 </template>
 
 <script>
