@@ -7,4 +7,5 @@ $ npm install
 $ npm run watch
 ```
 ## PrimeVue
-Check out branch `PrimeVue` for an UI components supporting Vue3.
+Check out branch `PrimeVue` for an UI component example which supports Vue3.
+It contains a dynamic theme change example utilizing Webpack multi-entries.
