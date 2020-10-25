@@ -96,7 +96,7 @@ module.exports = (env, options) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        excludeAssets: [/\.css$/], /* stop injecting css */
+        chunks: ['app'], /* stop injecting css */
         inject: true,
         hash: true, /* cache busting */
         template: __dirname + '/index.template.html',
