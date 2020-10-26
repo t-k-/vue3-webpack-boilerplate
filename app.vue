@@ -1,21 +1,23 @@
 <template>
-  <Button @click="nightTheme = !nightTheme">Change theme</Button>
+  <div>
+    <Button @click="nightTheme = !nightTheme">Change theme</Button>
 
-  <Dialog header="Theme Toggle" v-model:visible="showDialog">
-    Current theme is {{nightTheme ? "night theme" : "light theme"}}.
-  </Dialog>
+    <Dialog header="Theme Toggle" v-model:visible="showDialog">
+      Current theme is {{nightTheme ? "night theme" : "light theme"}}.
+    </Dialog>
 
-  <div class="p-grid">
-      <div class="p-col">1</div>
-      <div class="p-col">2</div>
-      <div class="p-col">3</div>
-  </div>
+    <div class="p-grid">
+        <div class="p-col">1</div>
+        <div class="p-col">2</div>
+        <div class="p-col">3</div>
+    </div>
 
     <Card>
-		<template v-slot:content>
-		Content
-		</template>
+      <template v-slot:content>
+      Content
+      </template>
     </Card>
+  </div>
 </template>
 
 <script>

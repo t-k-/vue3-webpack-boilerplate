@@ -25,7 +25,7 @@ module.exports = (env, options) => {
       app: __dirname + '/main.js'
     },
     output: { /* required field */
-      filename: '[name].js'
+      filename: '[name].bundle.js'
     },
     module: {
       rules: [
@@ -37,6 +37,7 @@ module.exports = (env, options) => {
             options: { presets: ["@babel/preset-env"] }
           }
         },
+        { test: /\.vue$/, enforce: 'pre', use: 'eslint-loader', exclude: /node_modules/},
         { test: /\.vue$/, use: 'vue-loader' },
         { test: /\.css$/, use: [
           {
