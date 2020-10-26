@@ -10,6 +10,12 @@
       <div class="p-col">2</div>
       <div class="p-col">3</div>
   </div>
+
+    <Card>
+		<template v-slot:content>
+		Content
+		</template>
+    </Card>
 </template>
 
 <script>

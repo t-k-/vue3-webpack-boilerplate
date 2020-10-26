@@ -8,10 +8,12 @@ import Dialog from 'primevue/dialog'
 import Button from 'primevue/button'
 import Toolbar from 'primevue/toolbar';
 import InputText from 'primevue/inputtext';
+import Card from 'primevue/card';
 app.component('Dialog', Dialog)
 app.component('Button', Button)
 app.component('Toolbar', Toolbar)
 app.component('InputText', InputText)
+app.component('Card', Card)
 
 import 'primeicons/primeicons.css'
 import 'primevue/resources/primevue.min.css'
