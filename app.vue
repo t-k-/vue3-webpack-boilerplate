@@ -1,23 +1,15 @@
 <template>
-  <div>
-    <Button @click="nightTheme = !nightTheme">Change theme</Button>
+  <Toolbar>
+    <template v-slot:left>
+      <h3>Test</h3>
+    </template>
 
-    <Dialog header="Theme Toggle" v-model:visible="showDialog">
-      Current theme is {{nightTheme ? "night theme" : "light theme"}}.
-    </Dialog>
-
-    <div class="p-grid">
-        <div class="p-col">1</div>
-        <div class="p-col">2</div>
-        <div class="p-col">3</div>
-    </div>
-
-    <Card>
-      <template v-slot:content>
-      Content
-      </template>
-    </Card>
-  </div>
+    <template v-slot:right>
+      <i class="las la-sun"></i>
+      <InputSwitch v-model="nightTheme"/>
+      <i class="las la-moon"></i>
+    </template>
+  </Toolbar>
 </template>
 
 <script>
@@ -33,14 +25,12 @@ module.exports = {
       } else {
         this.changeTheme('light.css')
       }
-      this.showDialog = true
     }
   },
 
   data: function() {
     return {
-      nightTheme: false,
-      showDialog: false
+      nightTheme: false
     }
   },
 
@@ -57,10 +47,10 @@ module.exports = {
       theme.id = "theme"
       theme.href = 'light.css' /* default */
       document.head.appendChild(theme)
-    }
+    },
   }
 }
 </script>
 
-<style scoped>
+<style>
 </style>

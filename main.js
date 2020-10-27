@@ -2,23 +2,19 @@ import 'babel-polyfill'
 import { createApp } from 'vue'
 import App from './app.vue'
 
+import 'primevue/resources/primevue.min.css'
+import 'primeicons/primeicons.css'
+import 'primeflex/primeflex.css'
+
+import './customization.css'
+import 'line-awesome/dist/line-awesome/css/line-awesome.min.css'
+
 const app = createApp(App)
 
-import Dialog from 'primevue/dialog'
-import Button from 'primevue/button'
-import Toolbar from 'primevue/toolbar';
-import InputText from 'primevue/inputtext';
-import Card from 'primevue/card';
-app.component('Dialog', Dialog)
-app.component('Button', Button)
+import Toolbar from 'primevue/toolbar'
 app.component('Toolbar', Toolbar)
-app.component('InputText', InputText)
-app.component('Card', Card)
 
-import 'primeicons/primeicons.css'
-import 'primevue/resources/primevue.min.css'
-import 'primeflex/primeflex.css'
-import './linux-libertine-webfont.css'
-import './background.css'
+import InputSwitch from 'primevue/inputswitch'
+app.component('InputSwitch', InputSwitch)
 
 app.mount('#app')

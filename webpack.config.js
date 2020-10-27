@@ -20,7 +20,7 @@ module.exports = (env, options) => {
     /* default is development mode, run 'yarn run build' for production. */
     mode: mode,
     entry: { /* required field */
-      light: __dirname + '/node_modules/primevue/resources/themes/saga-blue/theme.css',
+      light: __dirname + '/node_modules/primevue/resources/themes/md-light-indigo/theme.css',
       night: __dirname + '/node_modules/primevue/resources/themes/vela-blue/theme.css',
       app: __dirname + '/main.js'
     },
@@ -32,10 +32,13 @@ module.exports = (env, options) => {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          use: {
+          use: [
+          {
             loader: "babel-loader",
             options: { presets: ["@babel/preset-env"] }
-          }
+          },
+          //'vue-loader',
+          ]
         },
         { test: /\.vue$/, enforce: 'pre', use: 'eslint-loader', exclude: /node_modules/},
         { test: /\.vue$/, use: 'vue-loader' },
@@ -97,6 +100,8 @@ module.exports = (env, options) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
+        title: 'Title',
+        favicon: "./resource/favicon.ico",
         chunks: ['app'], /* stop injecting css */
         inject: true,
         hash: true, /* cache busting */
